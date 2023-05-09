@@ -17,6 +17,7 @@ const Header = (props) => {
   });
 
   const { RightLinks } = props;
+  console.log("This is header");
 
   function Branding() {
     return (
