@@ -5,6 +5,7 @@ const HeaderStyles = {
     display: "flex",
     alignItems: "center",
     padding: "0 3%",
+    background: "transparent",
   },
   fixed: {
     position: "fixed",
@@ -18,6 +19,7 @@ const HeaderStyles = {
     display: "flex",
     alignItems: "center",
     gap: "10px",
+    cursor: "pointer",
   },
   brandTitle: {
     fontFamily: "'Braah One', sans-serif",
@@ -76,7 +78,7 @@ const HeaderStyles = {
 
   //footer styles
   footer: {
-    position: "fixed",
+    position: "relative",
     bottom: "0",
     left: "0",
     background: "#eee",

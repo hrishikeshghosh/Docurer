@@ -6,10 +6,10 @@ import { SessionProvider } from "next-auth/react";
 import { Toaster } from "react-hot-toast";
 import Layout from "@/layout/Layout";
 import favicon from "@/public/images/favicon-32x32.png";
+import AppStore from "./AppContext";
 import "../public/scss/main.scss";
 
 function App({ Component, pageProps }) {
-
   return (
     <React.Fragment>
       <div>
@@ -28,12 +28,13 @@ function App({ Component, pageProps }) {
         <meta property="og:image:height" content="630" />
         <title>Docurer</title>
       </Head>
-
-      <SessionProvider session={pageProps.session}>
-        <Layout children={pageProps}>
-          <Component {...pageProps} />
-        </Layout>
-      </SessionProvider>
+      <AppStore>
+        <SessionProvider session={pageProps.session}>
+          <Layout children={pageProps}>
+            <Component {...pageProps} />
+          </Layout>
+        </SessionProvider>
+      </AppStore>
     </React.Fragment>
   );
 }

@@ -1,4 +1,3 @@
-
 const hexColorToRGB = function (hexColor) {
   let detectShorthand = /^#?([a-f\d])([a-f\d])([a-f\d])$/i; // #000 vs #000000
   hexColor = hexColor.replace(detectShorthand, function (m, r, g, b) {
@@ -189,7 +188,7 @@ const title = {
   margin: "1.75rem 0 0.875rem",
   textDecoration: "none",
   fontWeight: "700",
-  fontFamily: `'Oxygen', sans-serif`,
+  fontFamily: `'Montserrat', sans-serif`,
 };
 
 const cardTitle = {

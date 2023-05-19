@@ -3,8 +3,11 @@ import { useSession } from "next-auth/react";
 import Header from "@/components/Header/Header";
 import Footer from "@/components/Footer/Footer";
 import HeaderLinks from "@/components/Header/HeaderLinks";
+import Chatbot from "@/components/chatbot/Chatbot";
+
 const layout = ({ children }) => {
   const { data: session, status } = useSession();
+
   return (
     <div>
       <Header
@@ -19,6 +22,7 @@ const layout = ({ children }) => {
         }}
       />
       <div>{children}</div>
+      <Chatbot />
       <Footer />
     </div>
   );

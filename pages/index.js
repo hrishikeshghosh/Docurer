@@ -2,10 +2,37 @@ import Head from "next/head";
 import Image from "next/image";
 import { Inter } from "next/font/google";
 import favicon from "../public/images/favicon.ico";
+import TopFragger from "@/components/TopFragger/TopFragger";
+import sect2Img from "../public/images/indexSect2Img.png";
+import { makeStyles } from "@mui/styles";
+import homePageStyles from "@/public/jss/next-jss-components/homepageStyles";
+import { GiHypodermicTest, GiAmbulance } from "react-icons/gi";
+import { Button, Slide } from "@mui/material";
+import classNames from "classnames";
+import HomePageCard from "@/components/HomePageCard/HomePageCard";
+import HomepageAppointmentForm from "../components/HomepageAppointmentForm";
+import phone from "../public/images/iPhoneBlue.png";
+import mapIcon from "../public/images/mapIcon.png";
+import settingsIcon from "../public/images/settingsIcon.png";
+import woman from "../public/images/appointWomen.png";
+import HomePageSection5Caraousel from "@/components/HomePageSection5Components/HomePageSection5Caraousel";
 
 const inter = Inter({ subsets: ["latin"] });
 
+const useStyles = makeStyles(homePageStyles);
+
 export default function Home() {
+  const classes = useStyles();
+
+  const serviceButtonLeft = classNames({
+    [classes.serviceButton]: true,
+    [classes.serviceButtonBlue]: true,
+  });
+  const serviceButtonRight = classNames({
+    [classes.serviceButton]: true,
+    [classes.serviceButtonGreen]: true,
+  });
+
   return (
     <>
       <Head>
@@ -15,7 +42,105 @@ export default function Home() {
         <meta property="og:image" content={favicon} />
       </Head>
       <main>
-        
+        <TopFragger />
+        <div className={classes.section2Root}>
+          <img src={sect2Img} />
+          <div className={classes.section2descCenter}>
+            <h3 className={classes.section2h4}>Our Services</h3>
+            <h1 className={classes.section2h1}>
+              The Great Place Of Medical Hospital Center
+            </h1>
+            <p
+              style={{
+                fontFamily: "'Roboto', sans-serif",
+                color: "#394867",
+                fontWeight: "600",
+              }}
+            >
+              We provide the special tips and advice’s of heath care treatment
+              and high level of best technology involve in the our hospital.
+            </p>
+            <div className={classes.serviceButtonSpace}>
+              <div className={serviceButtonLeft}>
+                <div className={classes.blueIcon}>
+                  <GiHypodermicTest />
+                </div>
+                <p className={classes.buttonText}>Detect Diesease</p>
+              </div>
+              <div className={serviceButtonRight}>
+                <div className={classes.greenIcon}>
+                  <GiAmbulance />
+                </div>
+                <p className={classes.buttonText}>Consult a doctor</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        {/* section 3 */}
+        <div className={classes.section3Root}>
+          <div className={classes.section3Titleholder}>
+            <h4 className={classes.section3title}>Working Process</h4>
+            <h1 className={classes.section3subtitle}>How do we work?</h1>
+          </div>
+          <div className={classes.cardHolder}>
+            <HomePageCard
+              color="white"
+              cardNum="1"
+              title="Test for a disease"
+              subtitle="Test for a disease and get more than 80% accuracy and auto generated
+          Test Results"
+            />
+            <HomePageCard
+              color="orange"
+              lift={true}
+              cardNum="2"
+              title="Appoint a doctor"
+              subtitle="Appoint a doctor to diagnose the disease (if positive)"
+            />
+            <HomePageCard
+              color="white"
+              cardNum="3"
+              title="Read regular health care"
+              subtitle="Read our health care blogs to stay healthy"
+            />
+          </div>
+        </div>
+        {/* section 4 */}
+        <div className={classes.section4root}>
+          <div className={classes.section4Bg}>
+            <HomepageAppointmentForm />
+            <div
+              style={{
+                borderBottom: "2px solid #000",
+                position: "relative",
+                width: "50%",
+              }}
+            >
+              <img src={phone} className={classes.phoneImage} />
+              <img src={mapIcon} className={classes.mapIconImage} />
+              <img src={settingsIcon} className={classes.settingsIconImage} />
+              <img src={woman} className={classes.womanIllusImage} />
+            </div>
+          </div>
+        </div>
+        {/* section 5 */}
+        <div className={classes.section5root}>
+          <div className={classes.section5InnerMain}>
+            <div className={classes.section5staticBox} />
+            <div className={classes.section5descBox}>
+              <h4 className={classes.pathSerTitle}>Our Pathogen Services</h4>
+              <h1 className={classes.section5BigText}>
+                We Cover A Big Variety Of Pathogen Services
+              </h1>
+              <h4 className={classes.section5subtitle}>
+                We provide customized heath care reports on our pathogen
+                services as well
+              </h4>
+              <Button className={classes.section5MainButton}>View more</Button>
+            </div>
+            <HomePageSection5Caraousel />
+          </div>
+        </div>
       </main>
     </>
   );

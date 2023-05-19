@@ -14,13 +14,29 @@ const HeaderLinks = () => {
   const classes = useStyles();
   const { data: session, status } = useSession();
   let productList = [
-    <Link href={"/diagnose"} className={classes.links}>
-      <p className="hover-underline-animation">Test For Disease</p>
+    <Link
+      href={"/pathlab/testing-room?test=diabetes"}
+      className={classes.links}
+    >
+      <p className="hover-underline-animation">Test For Diabetes</p>
     </Link>,
-    <Link href={"/browse-doctor"} className={classes.links}>
-      <p className="hover-underline-animation">Get Your Doctor Appointment</p>
+    <Link
+      href={"/pathlab/testing-room?test=heart-diesease"}
+      className={classes.links}
+    >
+      <p className="hover-underline-animation">Test For Heart Dieseas</p>
+    </Link>,
+    // <Link href={"/pathlab/parkinsons"} className={classes.links}>
+    //   <p className="hover-underline-animation">Test For Parkinsons</p>
+    // </Link>,
+    // <Link href={"/pathlab/brain-tumour"} className={classes.links}>
+    //   <p className="hover-underline-animation">Test For Brain Tumour</p>
+    // </Link>,
+    <Link href={"/doctor-dictionary"} className={classes.links}>
+      <p className="hover-underline-animation">Make an appointment</p>
     </Link>,
   ];
+  let tests = {};
   let pages = [
     <Link href={"/about-us"} className={classes.links}>
       <p className="hover-underline-animation">About us</p>
@@ -32,6 +48,7 @@ const HeaderLinks = () => {
       <p className="hover-underline-animation">FAQ's</p>
     </Link>,
   ];
+
   return (
     <List className={classes.list}>
       <ListItem className={classes.listItem}>

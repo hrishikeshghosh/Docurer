@@ -23,6 +23,7 @@
     "crypto": "^1.0.1",
     "dotenv": "^16.0.3",
     "formik": "^2.2.9",
+    "formik-mui": "^5.0.0-alpha.0",
     "isomorphic-dompurify": "^1.4.0",
     "moment-timezone": "^0.5.43",
     "multer": "^1.4.5-lts.1",
@@ -42,7 +43,10 @@
     "react-hot-toast": "^2.4.1",
     "react-icons": "^4.8.0",
     "react-image-file-resizer": "^0.4.8",
-    "typewriter-effect": "^2.19.0"
+    "react-lottie": "^1.2.3",
+    "react-multi-carousel": "^2.8.3",
+    "typewriter-effect": "^2.19.0",
+    "yup": "^1.1.1"
   },
   "devDependencies": {
     "prisma": "^4.13.0",

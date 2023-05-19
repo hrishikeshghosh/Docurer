@@ -5,11 +5,13 @@ import classNames from "classnames";
 import { Button, Typography } from "@mui/material";
 import favicon from "../../public/images/android-chrome-512x512.png";
 import HeaderLinks from "./HeaderLinks";
+import { useRouter } from "next/router";
 
 const useStyles = makeStyles(HeaderStyles);
 
 const Header = (props) => {
   const classes = useStyles();
+  const router = useRouter();
 
   const appBarClasses = classNames({
     [classes.Appbar]: true,
@@ -20,7 +22,7 @@ const Header = (props) => {
 
   function Branding() {
     return (
-      <div className={classes.brandRoot}>
+      <div className={classes.brandRoot} onClick={() => router.push("/")}>
         <img src={favicon} className={classes.brandIcon} />
         <h1 className={classes.brandTitle}>Docurer</h1>
       </div>

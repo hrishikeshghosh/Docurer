@@ -1,38 +1,40 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Docurer
+A webapp that extends its abilities to the health care system.
 
-## Getting Started
+There are all total two branches.
+1. main --webapp
+2. master --ml models
 
-First, run the development server:
+### BRANCH MAIN
+The main branch contains all scripts for the web app.
+Here's how you can clone the docurer-web:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+**Firstly install gitbash to use unix command line**
+refer to this video -> https://www.youtube.com/watch?v=7BOrUHFu44A
+you can use Hyper terminal or even vsCode's native terminal to use gitbash just set the terminal to _bash_
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+**Secondly install nvm package manager to install and use node in your machine**
+refer to this video -> https://www.youtube.com/watch?v=RDScvojqAio
+use node version _18.12.1_ to avoid any conflicts
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+now that node has been set up on your machine. Clone this repo to get the codebase on your local:
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+Do the following steps:
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+1. cd _naviagte to your desired branch_
+2. mkdir _create a folder with your desired name for eg FINALYEARPROJECT_
+3. now come to terminal and do git clone https://github.com/hrishikeshghosh/Docurer.git
+4. As you can see the codebase is cloned on your machine
+5. before starting the server do not forget to install all the useful packages by using _**npm install**_
+6. now you are ready to run server
+7. **_npm run dev_** to run server
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+_[We use NEXTJS with SQL as our database and prisma as the OVM. Our nextjs bundle contains capabilities of ERN STACK -> EXPRESSJS, REACTJS, NODEJS]_
 
-## Learn More
+### BRANCH MASTER
+usually we would create different branches for different ml models but master would contain the flask file and apis that would connect all the models.  [NOT YET INITIALIZED]
 
-To learn more about Next.js, take a look at the following resources:
+## DEPLOYMENT
+Currently the project is under development. 
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
