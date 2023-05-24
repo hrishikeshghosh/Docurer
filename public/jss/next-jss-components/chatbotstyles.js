@@ -28,6 +28,11 @@ const chatbotstyles = {
     fontFamily: "'Roboto', sans-serif",
     color: "#fff",
   },
+  chatZone: {
+    padding: "2%",
+    overflowY: "auto",
+    height:"320px"
+  },
   promptSpace: {
     width: "100%",
     padding: "2%",
@@ -47,6 +52,42 @@ const chatbotstyles = {
     border: "none",
     outline: "none",
     fontSize: "1rem",
+    fontFamily: "'Roboto', sans-serif",
+  },
+
+  myTextBubbleWrapper: {
+    position: "relative",
+    width: "100%",
+    display: "flex",
+    alignItems: "flex-end",
+    justifyContent: "flex-end",
+    margin: "2%  0",
+    padding: "0 2%",
+  },
+  myTextBubble: {
+    padding: "4%",
+    width: "80%",
+    borderRadius: "20px 20px 5px 20px",
+    background: "#243763",
+    color: "#fff",
+    fontFamily: "'Roboto', sans-serif",
+  },
+  botTextBubbleWrapper: {
+    position: "relative",
+    width: "100%",
+    display: "flex",
+    alignItems: "flex-start",
+    justifyContent: "flex-start",
+    gap:"10px",
+    margin: "2%  0",
+    padding: "0 2%",
+  },
+  botTextBubble: {
+    padding: "4%",
+    width: "80%",
+    borderRadius: "20px 20px 5px 20px",
+    background: "#fff",
+    color: "#243763",
     fontFamily: "'Roboto', sans-serif",
   },
 };

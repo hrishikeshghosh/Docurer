@@ -17,6 +17,8 @@ import {
 import { TextField } from "@mui/material";
 import Diabetes from "@/components/pathlab/Diabetes";
 import LeafSVG from "@/components/SVGS/LeafSVG";
+import HeartDisease from "@/components/pathlab/HeartDisease";
+import KidneyDisease from "@/components/pathlab/KidneyDisease";
 
 const useStyles = makeStyles(pathlabStyles);
 
@@ -45,6 +47,10 @@ const testingRoom = () => {
     switch (test) {
       case "diabetes":
         return <Diabetes setLoading={setLoading} />;
+      case "heart-disease":
+        return <HeartDisease setLoading={setLoading} />;
+      case "kidney-disease":
+        return <KidneyDisease setLoading={setLoading} />;
     }
   }
 

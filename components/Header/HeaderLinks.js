@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Avatar, Button, List, ListItem } from "@mui/material";
 import { makeStyles } from "@mui/styles";
 import HeaderStyles from "@/public/jss/next-jss-components/HeaderStyles";
@@ -8,11 +8,21 @@ import { BiArchive } from "react-icons/bi";
 import { AiFillPhone } from "react-icons/ai";
 import { RiTeamFill } from "react-icons/ri";
 import { useSession } from "next-auth/react";
+import { useRouter } from "next/router";
 
 const useStyles = makeStyles(HeaderStyles);
 const HeaderLinks = () => {
   const classes = useStyles();
-  const { data: session, status } = useSession();
+  const [session, setSession] = useState(false);
+  const router = useRouter();
+
+  useEffect(() => {
+    const data = JSON.parse(localStorage.getItem("profile"));
+    if (data) {
+      setSession(true);
+    }
+  });
+
   let productList = [
     <Link
       href={"/pathlab/testing-room?test=diabetes"}
@@ -21,31 +31,21 @@ const HeaderLinks = () => {
       <p className="hover-underline-animation">Test For Diabetes</p>
     </Link>,
     <Link
-      href={"/pathlab/testing-room?test=heart-diesease"}
+      href={"/pathlab/testing-room?test=heart-disease"}
       className={classes.links}
     >
-      <p className="hover-underline-animation">Test For Heart Dieseas</p>
+      <p className="hover-underline-animation">Test For Heart Failure</p>
     </Link>,
-    // <Link href={"/pathlab/parkinsons"} className={classes.links}>
-    //   <p className="hover-underline-animation">Test For Parkinsons</p>
-    // </Link>,
-    // <Link href={"/pathlab/brain-tumour"} className={classes.links}>
-    //   <p className="hover-underline-animation">Test For Brain Tumour</p>
-    // </Link>,
+    <Link
+      href={"/pathlab/testing-room?test=kidney-disease"}
+      className={classes.links}
+    >
+      <p className="hover-underline-animation">
+        Test For Chronic Kidney Disease
+      </p>
+    </Link>,
     <Link href={"/doctor-dictionary"} className={classes.links}>
       <p className="hover-underline-animation">Make an appointment</p>
-    </Link>,
-  ];
-  let tests = {};
-  let pages = [
-    <Link href={"/about-us"} className={classes.links}>
-      <p className="hover-underline-animation">About us</p>
-    </Link>,
-    <Link href={"/our-team"} className={classes.links}>
-      <p className="hover-underline-animation">Our team</p>
-    </Link>,
-    <Link href={"/faq"} className={classes.links}>
-      <p className="hover-underline-animation">FAQ's</p>
     </Link>,
   ];
 
@@ -60,9 +60,11 @@ const HeaderLinks = () => {
         </Button>
       </ListItem>
       <ListItem className={classes.listItem}>
-        <Button className={classes.navButtons}>
-          About us <RiTeamFill className={classes.navIcons} />
-        </Button>
+        <Link href={"/about-us"}>
+          <Button className={classes.navButtons}>
+            About us <RiTeamFill className={classes.navIcons} />
+          </Button>
+        </Link>
       </ListItem>
       <ListItem className={classes.listItem}>
         <Button className={classes.navButtons}>
@@ -73,7 +75,14 @@ const HeaderLinks = () => {
         {session ? (
           <Avatar />
         ) : (
-          <Button className={classes.signInButton}>Sign in</Button>
+          <Button
+            className={classes.signInButton}
+            onClick={() => {
+              router.push("/auth");
+            }}
+          >
+            Sign in
+          </Button>
         )}
       </ListItem>
     </List>

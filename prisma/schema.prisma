@@ -1,0 +1,79 @@
+datasource db {
+    provider = "mysql"
+    url      = env("DATABASE_URL")
+}
+
+generator client {
+    provider = "prisma-client-js"
+}
+
+enum PaymentType {
+    CARD
+    CASH
+}
+
+enum PaymentStatus {
+    PENDING
+    COMPLETE
+}
+
+model Users {
+    id           Int            @id @default(autoincrement())
+    firstName    String
+    lastName     String
+    displayImage String?
+    email        String         @unique()
+    password     String
+    test         TestResults[]
+    Appointments Appointments[]
+    Payments     Payments[]
+}
+
+model TestResults {
+    id      Int     @id @default(autoincrement())
+    result  Boolean
+    users   Users   @relation(fields: [usersId], references: [id])
+    usersId Int
+}
+
+model Doctors {
+    id              Int            @id @default(autoincrement())
+    firstName       String
+    lastName        String
+    displayImage    String?
+    email           String         @unique()
+    password        String
+    Specialist_type String
+    description     String
+    location        String?
+    isVerified      Boolean        @default(true)
+    rating          Int            @default(0)
+    fees            Int            @default(500)
+    Appointments    Appointments[]
+}
+
+model Appointments {
+    id          Int        @id @default(autoincrement())
+    firstName   String
+    lastName    String
+    email       String
+    phone       String
+    bookingDate DateTime
+    Doctors     Doctors?   @relation(fields: [doctorsId], references: [id])
+    doctorsId   Int?
+    Payments    Payments[]
+    User        Users      @relation(fields: [usersId], references: [id])
+    usersId     Int
+}
+
+model Payments {
+    id             Int           @id @default(autoincrement())
+    amount         Int
+    timeStamp      DateTime      @default(now())
+    paymentType    PaymentType   @default(CASH)
+    status         PaymentStatus @default(PENDING)
+    appointment    Appointments? @relation(fields: [appointmentsId], references: [id])
+    appointmentsId Int?
+    User           Users         @relation(fields: [usersId], references: [id])
+    usersId        Int
+}
